@@ -1,20 +1,23 @@
 const express = require('express')
-const path = require('path')
-
 const app = express()
+const logger = require('./logger')
+const authorize = require('./authorize')
+// req => middleware => res
 
-app.use(express.static('./2-express-tutorial/public'))
+app.use(logger, authorize)
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, './2-express-tutorial/navbar-app/index.html'))
-//   adding to static assets
-//   SSR(server side rendering) template
-// })
-
-app.all('*', (req, res) => {
-    res.status(404).send('Reseource not found')
+app.get('/', (req, res)=>{
+    res.send('Home')
 })
-
-app.listen(5000,()=>{
+app.get('/about', (req, res)=>{
+    res.send('About')
+})
+app.get('/api/products', (req, res)=>{
+    res.send('Products')
+})
+app.get('/api/items', (req, res)=>{
+    res.send('Items')
+})
+app.listen(5000, ()=> {
     console.log('Server is listening on port 5000...')
 })
