@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "main": "1-intro.js",
   "scripts": {
-  "start": "node ./node_modules/nodemon/bin/nodemon.js app.js"
-},
+    "start": "node ./node_modules/nodemon/bin/nodemon.js app.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "bootstrap": "^5.3.6",
-    "express": "^5.1.0",
+    "express": "^4.17.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
